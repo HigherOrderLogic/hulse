@@ -25,6 +25,8 @@ jobs:
           cat ./logs >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
+          rm ./logs
+
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
