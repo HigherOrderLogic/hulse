@@ -1,0 +1,5 @@
+unpacking 'github:nixos/nixpkgs/af84f9d270d404c17699522fab95bbf928a2d92f' into the Git cache...
+warning: updating lock file "/home/runner/work/hulse/hulse/flake.lock":
+• Updated input 'nixpkgs':
+    'github:nixos/nixpkgs/e8d16d2186d6ed9f047eb30948e97e7e01886d10?narHash=sha256-1wbl0y7U8TvSHxDWME7o92bIspfuhjVaTOs27r54uc4%3D' (2025-12-16)
+  → 'github:nixos/nixpkgs/af84f9d270d404c17699522fab95bbf928a2d92f?narHash=sha256-pJjWUzNnjbIAMIc5gRFUuKCDQ9S1cuh3b2hKgA7Mc4A%3D' (2025-12-17)
