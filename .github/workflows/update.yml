@@ -19,13 +19,9 @@ jobs:
       - name: Update lock
         id: nix-update
         run: |
-          nix flake update &> ./logs
-
           echo "changes<<EOF" >> $GITHUB_OUTPUT
-          cat ./logs >> $GITHUB_OUTPUT
+          nix flake update &>> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-
-          rm ./logs
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7
