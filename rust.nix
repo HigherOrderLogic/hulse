@@ -1,13 +1,20 @@
 {
   lib,
   pkgs,
+  rust-overlay,
   rustc,
   cargo,
   clippy,
-  rustfmt,
   cargo-insta,
   withInsta ? false,
 }:
 pkgs.mkShell {
-  packages = [rustc cargo clippy rustfmt] ++ (lib.optional withInsta cargo-insta);
+  packages =
+    [
+      rustc
+      cargo
+      clippy
+      rust-overlay.packages.${pkgs.stdenv.hostPlatform.system}.rust-nightly.availableComponents.rustfmt
+    ]
+    ++ (lib.optional withInsta cargo-insta);
 }
