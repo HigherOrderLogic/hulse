@@ -31,6 +31,10 @@
         inherit rust-overlay;
         withInsta = true;
       };
+      rust-w-wayland = pkgs.callPackage ./rust.nix {
+        inherit rust-overlay;
+        withWayland = true;
+      };
     });
   };
 }
