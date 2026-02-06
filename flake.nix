@@ -31,6 +31,7 @@
       rust = mkRustShell {};
       rust-w-insta = mkRustShell {withInsta = true;};
       rust-w-wayland = mkRustShell {withWayland = true;};
+      rust-w-slint = mkRustShell {withSlint = true;};
     });
   };
 }
