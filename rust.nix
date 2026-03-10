@@ -11,6 +11,7 @@
   wayland,
   libGL,
   libxkbcommon,
+  fontconfig,
   withInsta ? false,
   withWayland ? false,
   withSlint ? false,
@@ -27,7 +28,7 @@ mkShell {
 
   nativeBuildInputs = lib.optional (withWayland || withSlint) pkg-config;
 
-  buildInputs = lib.optionals (withWayland || withSlint) [wayland libxkbcommon];
+  buildInputs = lib.optionals (withWayland || withSlint) [wayland libxkbcommon fontconfig];
 
   env.RUSTFLAGS = lib.optionalString withSlint "-C link-arg=-Wl,-rpath,${lib.makeLibraryPath [wayland libGL]}";
 }
