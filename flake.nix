@@ -25,13 +25,8 @@
         '';
       });
 
-    devShells = forEachSystem (system: pkgs: let
-      mkRustShell = extra: pkgs.callPackage ./rust.nix ({inherit rust-overlay;} // extra);
-    in {
-      rust = mkRustShell {};
-      rust-w-insta = mkRustShell {withInsta = true;};
-      rust-w-wayland = mkRustShell {withWayland = true;};
-      rust-w-slint = mkRustShell {withSlint = true;};
+    devShells = forEachSystem (system: pkgs: {
+      rust = pkgs.callPackage ./rust.nix {inherit rust-overlay;};
     });
   };
 }
