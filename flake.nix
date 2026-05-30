@@ -1,17 +1,7 @@
 {
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-  };
+  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-  outputs = {
-    nixpkgs,
-    rust-overlay,
-    ...
-  }: let
+  outputs = {nixpkgs, ...}: let
     inherit (nixpkgs) lib;
 
     forEachSystem = fn: lib.genAttrs lib.systems.flakeExposed (system: fn system nixpkgs.legacyPackages.${system});
@@ -25,8 +15,6 @@
         '';
       });
 
-    devShells = forEachSystem (system: pkgs: {
-      rust = pkgs.callPackage ./rust.nix {inherit rust-overlay;};
-    });
+    devShells = forEachSystem (system: pkgs: {rust = pkgs.callPackage ./rust.nix {};});
   };
 }
